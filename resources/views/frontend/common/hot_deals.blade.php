@@ -29,26 +29,7 @@
                             @endif
                         </div>
 
-                        <div class="timing-wrapper">
-                            <div class="box-wrapper">
-                                <div class="date box"><span class="key">120</span> <span
-                                        class="value">DAYS</span>
-                                </div>
-                            </div>
-                            <div class="box-wrapper">
-                                <div class="hour box"><span class="key">20</span> <span
-                                        class="value">HRS</span>
-                                </div>
-                            </div>
-                            <div class="box-wrapper">
-                                <div class="minutes box"><span class="key">36</span> <span
-                                        class="value">MINS</span></div>
-                            </div>
-                            <div class="box-wrapper hidden-md">
-                                <div class="seconds box"><span class="key">60</span> <span
-                                        class="value">SEC</span></div>
-                            </div>
-                        </div>
+
                     </div>
                     <!-- /.hot-deal-wrapper -->
 
@@ -59,15 +40,21 @@
                                 @else
                                     {{$product->product_name_en}}
                                 @endif</a></h3>
-                        <div class="rating rateit-small"></div>
+
+
+                        {{--Review Star--}}
+                        @include('frontend.common.reviewStar')
+
+
+
                         @if($product->discount_price==NULL)
                             <div class="product-price"><span
                                     class="price"> ${{$product->selling_price}}</span>
                             </div>
                         @else
                             <div class="product-price">
-                                <span class="price"> ${{$product->discount_price}} </span>
-                                <span class="price-before-discount">$ {{$product->selling_price}}</span>
+                                <span class="price">TK {{$product->discount_price}} </span>
+                                <span class="price-before-discount">TK {{$product->selling_price}}</span>
                             </div>
                     @endif
                     <!-- /.product-price -->
@@ -77,12 +64,20 @@
 
                     <div class="cart clearfix animate-effect">
                         <div class="action">
-                            <div class="add-cart-button btn-group">
-                                <button class="btn btn-primary icon" data-toggle="dropdown"
-                                        type="button"><i class="fa fa-shopping-cart"></i></button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart
-                                </button>
-                            </div>
+                            <ul class="list-unstyled">
+                                <li class="add-cart-button btn-group">
+                                    <button
+                                        class="btn btn-primary icon" type="button"
+                                        title="Add Cart" data-toggle="modal" data-target="#exampleModal" id="{{$product->id}}"
+                                        onclick="productView(this.id)">ADD TO CART
+                                    </button >
+
+                                </li>
+
+                                <button class="btn btn-primary icon" type="button" title="Wishlist" id="{{ $product->id }}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
+
+
+                            </ul>
                         </div>
                         <!-- /.action -->
                     </div>

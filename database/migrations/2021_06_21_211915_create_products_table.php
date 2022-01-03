@@ -15,10 +15,10 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->integer('brand_id');
+            $table->integer('brand_id')->nullable();
             $table->integer('category_id');
             $table->integer('subcategory_id');
-            $table->integer('subsubcategory_id');
+            $table->integer('subsubcategory_id')->nullable();
 
             $table->string('product_name_en');
             $table->string('product_name_hin');
@@ -47,6 +47,7 @@ class CreateProductsTable extends Migration
             $table->integer('featured')->nullable();
             $table->integer('special_offer')->nullable();
             $table->integer('special_deals')->nullable();
+            $table->string('digital_file')->nullable();
             $table->integer('status')->default(0);
             $table->timestamps();
         });

@@ -8,9 +8,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="icon" href="{{asset('backend//images/favicon.ico')}}">
+    <link rel="icon" href="{{asset('backend//images/EuroBath.png ')}}">
 
-    <title>Easy Ecommerce Admin - Log in </title>
+
+    <title>Euro Bath Admin - Log in </title>
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="{{asset('backend/css/vendors_css.css')}}">
@@ -60,9 +61,9 @@
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-6">
-                                    <div class="fog-pwd text-right">
+                                    {{-- <div class="fog-pwd text-right">
                                         <a href="{{ route('password.request') }}" class="text-white hover-info"><i class="ion ion-locked"></i> Forgot pwd?</a><br>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-12 text-center">
@@ -82,9 +83,9 @@
                             </p>
                         </div>
 
-                        <div class="text-center">
+                        {{-- <div class="text-center">
                             <p class="mt-15 mb-0 text-white">Don't have an account? <a href="auth_register.html" class="text-info ml-5">Sign Up</a></p>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

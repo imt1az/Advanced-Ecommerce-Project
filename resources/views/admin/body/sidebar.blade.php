@@ -3,6 +3,7 @@
 @php
  $prefix = Request::route()->getPrefix();
   $route = Route::current()->getName();
+  $stting = \App\Models\SiteSetting::get()
 @endphp
 
 
@@ -14,11 +15,14 @@
 
         <div class="user-profile">
             <div class="ulogo">
-                <a href="index.html">
+                <a href="{{url('/admin/dashboard')}}">
+                <?php
+                $setting = \App\Models\SiteSetting::find(1);
+                ?>
                     <!-- logo for regular state and mobile devices -->
                     <div class="d-flex align-items-center justify-content-center">
-                        <img src="{{asset('backend/images/logo-dark.png')}}" alt="">
-                        <h3><b>Easy</b> Shop</h3>
+                        <img style="padding-right: 80px;" src="{{asset($setting->logo)}}" alt="logo">
+
                     </div>
                 </a>
             </div>
@@ -34,6 +38,27 @@
                 </a>
             </li>
 
+            @php
+            $brand = (auth()->guard('admin')->user()->brand == 1);
+            $category = (auth()->guard('admin')->user()->category == 1);
+            $product = (auth()->guard('admin')->user()->product == 1);
+            $slider = (auth()->guard('admin')->user()->slider == 1);
+            $banner = (auth()->guard('admin')->user()->banner == 1);
+            $coupons = (auth()->guard('admin')->user()->coupons == 1);
+            $shipping = (auth()->guard('admin')->user()->shipping == 1);
+            $blog = (auth()->guard('admin')->user()->blog == 1);
+            $setting = (auth()->guard('admin')->user()->setting == 1);
+            $returnorder = (auth()->guard('admin')->user()->returnorder == 1);
+            $review = (auth()->guard('admin')->user()->review == 1);
+            $orders = (auth()->guard('admin')->user()->orders == 1);
+            $stock = (auth()->guard('admin')->user()->stock == 1);
+            $reports = (auth()->guard('admin')->user()->reports == 1);
+            $alluser = (auth()->guard('admin')->user()->alluser == 1);
+            $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
+            @endphp
+
+
+            @if($brand == true)
             <li class="treeview {{($prefix == '/brand') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="message-circle"></i>
@@ -47,7 +72,11 @@
 {{--                    <li><a href="calendar.html"><i class="ti-more"></i>Calendar</a></li>--}}
                 </ul>
             </li>
+                @else
+            @endif
 
+
+            @if($category == true)
             <li class="treeview {{($prefix == '/category') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="mail"></i> <span>Category</span>
@@ -62,8 +91,11 @@
 
                 </ul>
             </li>
+            @else
+            @endif
 
            {{-- product-Prefix Started--}}
+            @if($product == true)
             <li class="treeview {{($prefix == '/product') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="file"></i>
@@ -78,10 +110,12 @@
 
                 </ul>
             </li>
+            @else
+            @endif
 
-            {{-- Slider-Prefix End--}}
+            {{-- Slider-Prefix Started--}}
 
-            {{-- product-Prefix Started--}}
+            @if($slider == true)
             <li class="treeview {{($prefix == '/slider') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="file"></i>
@@ -96,10 +130,37 @@
 
                 </ul>
             </li>
+            @else
+            @endif
 
             {{-- Slider-Prefix End--}}
 
+            {{-- Banner-Prefix Started--}}
+            @if($banner == true)
+                <li class="treeview {{($prefix == '/banner') ? 'active' : ''}}">
+                    <a href="#">
+                        <i data-feather="file"></i>
+                        <span>Banner</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="{{($route == 'manage-BannerOne') ? 'active' : ''}}"><a href="{{route('manage-BannerOne')}}"><i class="ti-more"></i>Manage Banner One</a></li>
+                        <li class="{{($route == 'manage-BannerTwo') ? 'active' : ''}}"><a href="{{route('manage-BannerTwo')}}"><i class="ti-more"></i>Manage Banner Two</a></li>
+                        <li class="{{($route == 'manage-InnerBanner') ? 'active' : ''}}"><a href="{{route('manage-InnerBanner')}}"><i class="ti-more"></i>Manage Inner Banner</a></li>
+
+
+                    </ul>
+                </li>
+            @else
+            @endif
+            {{-- Banner-Prefix End--}}
+
+
+
             {{-- Coupons Started--}}
+            @if($coupons == true)
             <li class="treeview {{($prefix == '/coupons') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="file"></i>
@@ -114,10 +175,13 @@
 
                 </ul>
             </li>
+            @else
+            @endif
 
             {{-- Coupons End--}}
 
             {{-- Shipping Started--}}
+            @if($shipping == true)
             <li class="treeview {{($prefix == '/shipping') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="file"></i>
@@ -134,10 +198,13 @@
 
                 </ul>
             </li>
+            @else
+            @endif
             {{-- Shipping End--}}
 
 
             {{-- Blog Started--}}
+            @if($blog == true)
             <li class="treeview {{($prefix == '/blog') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="file"></i>
@@ -153,10 +220,13 @@
 
                 </ul>
             </li>
+            @else
+            @endif
             {{-- Blog End--}}
 
 
             {{-- Site setting Started--}}
+            @if($setting == true)
             <li class="treeview {{($prefix == '/setting') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="file"></i>
@@ -172,11 +242,14 @@
 
                 </ul>
             </li>
+            @else
+            @endif
             {{-- Site setting End--}}
 
 
 
             {{-- Return Request Started--}}
+            @if($returnorder == true)
             <li class="treeview {{($prefix == '/return') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="file"></i>
@@ -192,11 +265,14 @@
 
                 </ul>
             </li>
+            @else
+            @endif
             {{-- Return Request End--}}
 
 
 
             {{-- Review Request Started--}}
+            @if($review == true)
             <li class="treeview {{($prefix == '/review') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="file"></i>
@@ -212,10 +288,12 @@
 
                 </ul>
             </li>
+            @else
+            @endif
             {{-- Review Request End--}}
 
-
-
+           {{--Order prefix Started--}}
+            @if($orders == true)
             <li class="header nav-small-cap">User Interface</li>
             <li class="treeview {{($prefix == '/orders') ? 'active' : ''}}">
                 <a href="#">
@@ -235,8 +313,12 @@
                     <li class="{{($route == 'cancel-orders') ? 'active' : ''}}"><a href="{{route('cancel-orders')}}"><i class="ti-more"></i>Cancel Orders</a></li>
                 </ul>
             </li>
+            @else
+            @endif
+            {{--End Order prefix Started--}}
 
-
+          {{---Stock Started--}}
+            @if($stock == true)
             <li class="treeview {{($prefix == '/stock') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="credit-card"></i>
@@ -249,9 +331,12 @@
                     <li class="{{($route == 'product.stock') ? 'active' : ''}}"><a href="{{route('product.stock')}}"><i class="ti-more"></i>Product stock</a></li>
                 </ul>
             </li>
+            @else
+            @endif
 
 
-
+            {{---reports Started--}}
+            @if($reports == true)
             <li class="treeview {{($prefix == '/reports') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="credit-card"></i>
@@ -264,8 +349,12 @@
                     <li class="{{($route == 'all-reports') ? 'active' : ''}}"><a href="{{route('all-reports')}}"><i class="ti-more"></i>All Reports</a></li>
                 </ul>
             </li>
+            @else
+            @endif
 
 
+            {{---allUser Started--}}
+            @if($alluser == true)
             <li class="treeview {{($prefix == '/allUser') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="credit-card"></i>
@@ -278,8 +367,12 @@
                     <li class="{{($route == 'all-users') ? 'active' : ''}}"><a href="{{route('all-users')}}"><i class="ti-more"></i>All Users</a></li>
                 </ul>
             </li>
+            @else
+            @endif
 
 
+            {{---adminuserrole Started--}}
+            @if($adminuserrole == true)
             <li class="treeview {{($prefix == '/adminuserrole') ? 'active' : ''}}">
                 <a href="#">
                     <i data-feather="credit-card"></i>
@@ -292,6 +385,8 @@
                     <li class="{{($route == 'all.admin.user') ? 'active' : ''}}"><a href="{{route('all.admin.user')}}"><i class="ti-more"></i>All Admin User</a></li>
                 </ul>
             </li>
+            @else
+            @endif
 
 
 

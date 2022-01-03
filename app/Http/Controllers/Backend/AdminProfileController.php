@@ -5,37 +5,51 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Intervention\Image\Facades\Image;
 
 class AdminProfileController extends Controller
 {
     public function AdminProfile()
     {
-        $adminData = Admin::find(1);
+        $id = Auth::user()->id;
+        $adminData = Admin::find($id);
         return view('admin.admin_profile_view',compact('adminData'));
     }
 
     public function AdminProfileEdit()
     {
-        $editData = Admin::find(1);
+        $id = Auth::user()->id;
+        $editData = Admin::find($id);
         return view('admin.admin_profile_edit',compact('editData'));
     }
 
     public function AdminProfileStore(Request $request)
     {
-        $data = Admin::find(1);
+
+        $id = Auth::user()->id;
+        $data = Admin::find($id);
         $data->name = $request->name;
         $data->email = $request->email;
 
         if($request->file('profile_photo_path'))
         {
-            $file = $request->file('profile_photo_path');
-            @unlink(public_path('upload/admin_images/'.$data->profile_photo_path));
-            $filename = date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('upload/admin_images'),$filename);
-            $data['profile_photo_path'] = $filename;
+//           $file = $request->file('profile_photo_path');
+//            @unlink(public_path('upload/admin_images/'.$data->profile_photo_path));
+//            $filename = date('YmdHi').$file->getClientOriginalName();
+//           $file->move(public_path('upload/admin_images'),$filename);
+//            $data['profile_photo_path'] = $filename;
+
+
+            unlink($data->profile_photo_path);
+            $image = $request->file('profile_photo_path');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            Image::make($image)->resize(225,225)->save('upload/admin_images/'.$name_gen);
+            $data->profile_photo_path = 'upload/admin_images/'.$name_gen;
+
         }
         $data->save();
 
@@ -44,6 +58,8 @@ class AdminProfileController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('admin.profile')->with($notification);
+
+
     }
 
     public function AdminChangePassword()
@@ -57,10 +73,10 @@ class AdminProfileController extends Controller
              'oldpassword'=>'required',
              'password'=>'required|confirmed',
           ]);
-          $hashedPassword = Admin::find(1)->password;
+          $hashedPassword = Auth::user()->password;
           if (Hash::check($request->oldpassword,$hashedPassword))
           {
-              $admin = Admin::find(1);
+              $admin = Admin::find(Auth::id());
               $admin->password = Hash::make($request->password);
               $admin->save();
               Auth::logout();

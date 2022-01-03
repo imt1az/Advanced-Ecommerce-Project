@@ -19,8 +19,8 @@
                 <div class="row">
                     <!-- Sign-in -->
                     <div class="col-md-6 col-sm-6 sign-in">
-                        <h4 class="">Forgot your Password</h4>
-                        <p class="">No need to worry</p>
+                        <h4 class="">Forgot your Password?</h4>
+                        <p class="">No need to worry!!</p>
 
                         <form method="POST" action="{{ route('password.email') }}">
                             @csrf
@@ -36,9 +36,12 @@
                 </div><!-- /.row -->
             </div><!-- /.sigin-in-->
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-        @include('frontend.body.brands')
+        {{-- @include('frontend.body.brands') --}}
         <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
     </div><!-- /.body-content -->
+
+    <br>
+    <br>
 
 
 

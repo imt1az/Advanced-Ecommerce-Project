@@ -58,9 +58,10 @@
                             </tr>
 
                             <tr>
-                                <th>State:</th>
-                                <th>{{$order->state->state_name}}</th>
+                                <th>Home Address:</th>
+                                <th>{{$order->notes}}</th>
                             </tr>
+
 
                             <tr>
                                 <th>Post Code:</th>

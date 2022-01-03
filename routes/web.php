@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\AdminUserController;
+use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
@@ -18,6 +19,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\HomeBlogController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\LanguageController;
+use App\Http\Controllers\Frontend\ShopController;
 use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CashController;
@@ -151,6 +153,36 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('/delete/{id}', [SliderController::class, 'SliderDelete'])->name('slider.delete');
         Route::get('/inactive/{id}', [SliderController::class, 'SliderInactive'])->name('slider.inactive');
         Route::get('/active/{id}', [SliderController::class, 'SliderActive'])->name('slider.active');
+    });
+
+    // Admin Banner
+    Route::prefix('banner')->group(function () {
+        Route::get('/view', [BannerController::class, 'BannerOneView'])->name('manage-BannerOne');
+        Route::post('/store', [BannerController::class, 'BannerOneStore'])->name('banner_One.store');
+        Route::get('/edit/{id}', [BannerController::class, 'BannerOneEdit'])->name('bannerOne.edit');
+        Route::post('/update', [BannerController::class, 'BannerOneUpdate'])->name('bannerOne.update');
+        Route::get('/delete/{id}', [BannerController::class, 'BannerOneDelete'])->name('bannerOne.delete');
+        Route::get('/inactive/{id}', [BannerController::class, 'BannerOneInactive'])->name('bannerOne.inactive');
+        Route::get('/active/{id}', [BannerController::class, 'BannerOneActive'])->name('bannerOne.active');
+
+        //Banner Two
+        Route::get('/view/bannerTwo', [BannerController::class, 'BannerTwoView'])->name('manage-BannerTwo');
+        Route::post('/store/bannerTwo', [BannerController::class, 'BannerTwoStore'])->name('banner_Two.store');
+        Route::get('/edit/{id}/bannerTwo', [BannerController::class, 'BannerTwoEdit'])->name('bannerTwo.edit');
+        Route::post('/update/bannerTwo', [BannerController::class, 'BannerTwoUpdate'])->name('bannerTwo.update');
+        Route::get('/delete/{id}/bannerTwo', [BannerController::class, 'BannerTwoDelete'])->name('bannerTwo.delete');
+        Route::get('/inactive/{id}/bannerTwo', [BannerController::class, 'BannerTwoInactive'])->name('bannerTwo.inactive');
+        Route::get('/active/{id}/bannerTwo', [BannerController::class, 'BannerTwoActive'])->name('bannerTwo.active');
+
+        //Inner Banner
+        Route::get('/view/innerBanner', [BannerController::class, 'InnerBannerView'])->name('manage-InnerBanner');
+        Route::post('/store/innerBanner', [BannerController::class, 'InnerBannerStore'])->name('innerBanner.store');
+        Route::get('/edit/{id}/innerBanner', [BannerController::class, 'InnerBannerEdit'])->name('innerBanner.edit');
+        Route::post('/update/innerBanner', [BannerController::class, 'InnerBannerUpdate'])->name('innerBanner.update');
+        Route::get('/delete/{id}/innerBanner', [BannerController::class, 'InnerBannerDelete'])->name('innerBanner.delete');
+        Route::get('/inactive/{id}/innerBanner', [BannerController::class, 'InnerBannerInactive'])->name('innerBanner.inactive');
+        Route::get('/active/{id}/innerBanner', [BannerController::class, 'InnerBannerActive'])->name('innerBanner.active');
+
     });
 
     // Admin Coupons All Routes
@@ -348,7 +380,7 @@ Route::post('add-to-wishlist/{product_id}', [CartController::class, 'AddToWishli
 
 
 
-//User Need login-------------->
+                        // <--------User Need login-------------->//
 Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'User'],function(){
 //WishList Page
     Route::get('/wishlist', [WishListController::class, 'ViewWishlist'])->name('wishlist');
@@ -373,6 +405,8 @@ Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'Use
     Route::get('/return/order/list', [AllUserController::class, 'ReturnOrderList'])->name('return.order.list');
     //Cancel Order List
     Route::get('/cancel/order/list', [AllUserController::class, 'CancelOrderList'])->name('cancel.orders');
+    //user Order Tracking Route
+    Route::post('/order/tracking', [AllUserController::class, 'OrderTracking'])->name('order.tracking');
 
 });
 
@@ -411,6 +445,20 @@ Route::get('/blog/category/post/{id}', [HomeBlogController::class, 'CategoryWise
 
 //Frontend Review Product
 Route::post('/review/store', [ReviewController::class, 'ReviewStore'])->name('review.store');
+
+
+//Product Search
+Route::post('/search', [IndexController::class, 'ProductSearch'])->name('product.search');
+//Advanced Search Product
+Route::post('search-product', [IndexController::class, 'SearchProduct']);
+
+// Shop Page Route
+Route::get('/shop', [ShopController::class, 'ShopPage'])->name('shop.page');
+Route::post('/shop/filter', [ShopController::class, 'ShopFilter'])->name('shop.filter');
+
+
+
+
 
 
 

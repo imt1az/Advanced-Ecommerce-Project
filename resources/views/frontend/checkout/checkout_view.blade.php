@@ -108,10 +108,10 @@
                                                 </div> <!-- // end form group -->
 
 
-                                                <div class="form-group">
+                                                {{-- <div class="form-group">
                                                     <h5><b>State Select</b> <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <select name="state_id" class="form-control" required="" >
+                                                        <select name="state_id" class="form-control"  >
                                                             <option value="" selected="" disabled="">Select State</option>
 
                                                         </select>
@@ -119,11 +119,11 @@
                                                         <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
-                                                </div> <!-- // end form group -->
+                                                </div> <!-- // end form group --> --}}
 
                                                 <div class="form-group">
-                                                    <label class="info-title" for="exampleInputEmail1">Notes<span>*</span></label>
-                                                     <textarea class="form-control" name="notes" cols="30" rows="5" placeholder="Notes"></textarea>
+                                                    <label class="info-title" for="exampleInputEmail1">Address<span>*</span></label>
+                                                     <textarea class="form-control" name="notes" cols="30" rows="5" placeholder="Address"></textarea>
                                                 </div>
 
 
@@ -171,16 +171,16 @@
                                             @endforeach
                                             <li>
                                                 @if(Session::has('coupon'))
-                                                    <strong style="color: #0b816a">SubTotal : </strong> ${{$cartTotal}}<hr>
+                                                    <strong style="color: #0b816a">SubTotal : </strong> BDT {{$cartTotal}}<hr>
                                                     <strong style="color: #0b816a">Coupon Name : </strong> {{session()->get('coupon')['coupon_name']}}
                                                     ({{session()->get('coupon')['coupon_discount']}}%)
                                                     <hr>
-                                                    <strong style="color: #0b816a">Coupon Discount : </strong> ${{session()->get('coupon')['discount_amount']}}<hr>
-                                                    <strong style="color: #0b816a">Grand Total : </strong> ${{session()->get('coupon')['total_amount']}}<hr>
+                                                    <strong style="color: #0b816a">Coupon Discount : </strong> BDT {{session()->get('coupon')['discount_amount']}}<hr>
+                                                    <strong style="color: #0b816a">Grand Total : </strong> BDT {{session()->get('coupon')['total_amount']}}<hr>
 
                                                     @else
-                                                    <strong style="color: #0b816a">SubTotal : </strong> ${{$cartTotal}} <hr>
-                                                    <strong style="color: #0b816a">Grand Total : </strong> ${{$cartTotal}} <hr>
+                                                    <strong style="color: #0b816a">SubTotal : </strong> BDT {{$cartTotal}} <hr>
+                                                    <strong style="color: #0b816a">Grand Total : </strong> BDT {{$cartTotal}} <hr>
                                                 @endif
                                             </li>
 
@@ -202,17 +202,17 @@
                                         <h4 class="unicase-checkout-title">Select Payment Method</h4>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4">
-                                         <label for="">Stripe</label>
-                                            <input type="radio" name="payment_method" value="stripe">
-                                            <img src="{{asset('frontend/assets/images/payments/4.png')}}">
-                                        </div>
+{{--                                        <div class="col-md-4">--}}
+{{--                                         <label for="">Stripe</label>--}}
+{{--                                            <input type="radio" name="payment_method" value="stripe">--}}
+{{--                                            <img src="{{asset('frontend/assets/images/payments/4.png')}}">--}}
+{{--                                        </div>--}}
 
-                                        <div class="col-md-4">
-                                            <label for="">Card</label>
-                                            <input type="radio" name="payment_method" value="card">
-                                            <img src="{{asset('frontend/assets/images/payments/3.png')}}">
-                                        </div>
+{{--                                        <div class="col-md-4">--}}
+{{--                                            <label for="">Card</label>--}}
+{{--                                            <input type="radio" name="payment_method" value="card">--}}
+{{--                                            <img src="{{asset('frontend/assets/images/payments/3.png')}}">--}}
+{{--                                        </div>--}}
 
                                         <div class="col-md-4">
                                             <label for="">Cash</label>
@@ -236,7 +236,7 @@
                 </div><!-- /.row -->
             </div><!-- /.checkout-box -->
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-           @include('frontend.body.brands')<!-- /.logo-slider -->
+{{--           @include('frontend.body.brands')<!-- /.logo-slider -->--}}
             <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
         </div><!-- /.container -->
     </div><!-- /.body-content -->

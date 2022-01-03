@@ -59,7 +59,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <h5>Subcategory Name Hindi<span class="text-danger">*</span></h5>
+                                        <h5>Subcategory Name Bangla<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="subcategory_name_hin" value="{{$subcategory->subcategory_name_hin}}"
                                                    class="form-control">

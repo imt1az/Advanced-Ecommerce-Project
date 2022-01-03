@@ -55,14 +55,14 @@
                                                     <h5>Choose picture<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="file" name="profile_photo_path"
-                                                               class="form-control" value="" required="" id="image">
+                                                               class="form-control" value=""  id="image">
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <img id="showImage"
-                                                     src="{{(!empty($editData->profile_photo_path)) ? url('upload/admin_images/'.$editData->profile_photo_path): url('upload/avatar.png')}}"
+                                                     src="{{(!empty($editData->profile_photo_path)) ? url($editData->profile_photo_path): url('upload/avatar.png')}}"
                                                      style="width: 100px; height: 100px;">
                                             </div>
                                         </div>

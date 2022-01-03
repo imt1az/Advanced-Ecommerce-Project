@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{{asset('backend//images/favicon.ico ')}}">
+    <link rel="icon" href="{{asset('backend//images/EuroBath.png ')}}">
 
-    <title>Easy Ecommerce Admin - Dashboard</title>
+    <title>Euro Bath Admin - Dashboard</title>
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="{{asset('backend/css/vendors_css.css')}}">

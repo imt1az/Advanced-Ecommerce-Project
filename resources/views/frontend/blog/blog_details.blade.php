@@ -43,7 +43,7 @@
 
 
                             <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                            <div class="addthis_inline_share_toolbox"></div>
+
 
                         </div>
 				<div class="blog-write-comment outer-bottom-xs outer-top-xs">

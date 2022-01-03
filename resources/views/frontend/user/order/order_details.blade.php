@@ -38,9 +38,10 @@
                             </tr>
 
                             <tr>
-                                <th>State</th>
-                                <th>{{$order->state->state_name}}</th>
+                                <th>Home Address:</th>
+                                <th>{{$order->notes}}</th>
                             </tr>
+
 
                             <tr>
                                 <th>Post Code</th>
@@ -148,8 +149,14 @@
                                     </td>
 
                                     <td class="col-md-1">
+                                        <label for=""> Download </label>
+                                    </td>
+
+                                    <td class="col-md-1">
                                         <label for=""> Price </label>
                                     </td>
+
+
 
                                 </tr>
 
@@ -179,6 +186,18 @@
 
                                         <td class="col-md-2">
                                             <label for=""> {{ $item->qty}}</label>
+                                        </td>
+                                        @php
+                                        $file = \App\Models\Product::where('id',$item->product_id)->first();
+                                        @endphp
+
+                                        <td class="col-md-2">
+                                            @if($order->status =='pending')
+                                                <strong><span class="badge badge-pill badge-success" style="background: #418DB9">No File</span></strong>
+                                            @elseif($order->status =='confirm')
+                                                <a target="_blank" href="{{asset('upload/pdf/'.$file->digital_file)}}">
+                                                <strong><span class="badge badge-pill badge-success" style="background:#ff0000">Download Ready</span></strong></a>
+                                            @endif
                                         </td>
 
                                         <td class="col-md-2">

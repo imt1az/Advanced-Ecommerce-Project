@@ -18,9 +18,14 @@ class CreateSiteSettingsTable extends Migration
             $table->string('logo')->nullable();
             $table->string('phone_one')->nullable();
             $table->string('phone_two')->nullable();
+            $table->string('phone_three')->nullable();
+            $table->string('phone_four')->nullable();
             $table->string('email')->nullable();
             $table->string('company_name')->nullable();
             $table->string('company_address')->nullable();
+            $table->string('company_address_one')->nullable();
+            $table->string('company_address_two')->nullable();
+            $table->string('company_address_three')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();

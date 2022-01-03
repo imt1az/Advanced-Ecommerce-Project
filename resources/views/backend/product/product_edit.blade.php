@@ -103,8 +103,7 @@
                                                 <div class="form-group">
                                                     <h5>Sub-SubCategory Select <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <select name="subsubcategory_id" class="form-control"
-                                                                required="">
+                                                        <select name="subsubcategory_id" class="form-control">
                                                             <option value="" selected="" disabled="">Select
                                                                 Sub-SubCategory
                                                             </option>
@@ -138,7 +137,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product Name Hindi <span class="text-danger">*</span></h5>
+                                                    <h5>Product Name Bangla <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_name_hin" class="form-control"
                                                                value="{{$products->product_name_hin}}"
@@ -215,7 +214,7 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product Tag Hindi <span class="text-danger">*</span></h5>
+                                                    <h5>Product Tag Bangla <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_tags_hin" required=""
                                                                class="form-control"
@@ -249,7 +248,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product Size Hindi <span class="text-danger">*</span></h5>
+                                                    <h5>Product Size Bangla <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_size_hin"
                                                                class="form-control"
@@ -289,7 +288,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <h5>Product Color Hindi <span class="text-danger">*</span></h5>
+                                                    <h5>Product Color Bangla <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_color_hin"
                                                                class="form-control"
@@ -356,7 +355,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <h5>Short Description Hindi<span class="text-danger">*</span></h5>
+                                                    <h5>Short Description Bangla<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <textarea name="short_descp_hin" id="textarea"
                                                                   class="form-control" required=""
@@ -387,7 +386,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <h5>Long Description Hindi<span class="text-danger">*</span></h5>
+                                                    <h5>Long Description Bangla<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <textarea id="editor2" required="" name="long_descp_hin"
                                                                   rows="10" cols="80">

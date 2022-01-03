@@ -49,6 +49,20 @@
                                                 </div>
 
                                                 <div class="form-group">
+                                                    <h5>Phone Three<span class="text-danger"></span></h5>
+                                                    <div class="controls">
+                                                        <input type="text"  name="phone_three" class="form-control" value="{{$setting->phone_three}}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h5>Phone Four<span class="text-danger"></span></h5>
+                                                    <div class="controls">
+                                                        <input type="text"  name="phone_four" class="form-control" value="{{$setting->phone_four}}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
                                                     <h5>Email<span class="text-danger"></span></h5>
                                                     <div class="controls">
                                                         <input type="email"  name="email" class="form-control" value="{{$setting->email}}">
@@ -66,6 +80,27 @@
                                                     <h5>Company Address<span class="text-danger"></span></h5>
                                                     <div class="controls">
                                                         <input type="text"  name="company_address" class="form-control" value="{{$setting->company_address}}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h5>Company Address One<span class="text-danger"></span></h5>
+                                                    <div class="controls">
+                                                        <input type="text"  name="company_address_one" class="form-control" value="{{$setting->company_address_one}}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h5>Company Address Two<span class="text-danger"></span></h5>
+                                                    <div class="controls">
+                                                        <input type="text"  name="company_address_two" class="form-control" value="{{$setting->company_address_two}}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h5>Company Address Three<span class="text-danger"></span></h5>
+                                                    <div class="controls">
+                                                        <input type="text"  name="company_address_three" class="form-control" value="{{$setting->company_address_three}}">
                                                     </div>
                                                 </div>
 

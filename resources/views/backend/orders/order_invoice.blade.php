@@ -48,16 +48,19 @@
     <tr>
         <td valign="top">
         <!-- {{-- <img src="" alt="" width="150"/> --}} -->
-            <h2 style="color: green; font-size: 26px;"><strong>EasyShop</strong></h2>
+            <h2 style="color: green; font-size: 26px;"><strong>Euro Bath</strong></h2>
         </td>
         <td align="right">
             <pre class="font" >
-               EasyShop Head Office
-               Email:support@easylearningbd.com <br>
-               Mob: 1245454545 <br>
-               Dhaka 1207,Dhanmondi:#4 <br>
+                Adress: 81, Bir Uttam C.R. Datta Sarak,
+                  (2nd Floor),Hatirpool,Dhaka-1205.
+                  Email: eurobath2016@gmail.com <br>
+                Phone:01618600706 <br>
+                Phone: 01618600702 <br>
+                Phone: 01618600712 <br>
+                 <br>
 
-            </pre>
+              </pre>
         </td>
     </tr>
 
@@ -75,10 +78,11 @@
                 @php
                     $div = $order->division->division_name;
                     $dis = $order->district->district_name;
-                    $state = $order->state->state_name;
+                    $address = $order->notes;
+
                 @endphp
 
-                <strong>Address:</strong> {{ $div }},{{ $dis }}.{{ $state }} <br>
+                <strong>Address:</strong>{{$address}},{{ $dis }}. {{ $div }}<br>
                 <strong>Post Code:</strong> {{ $order->post_code }}
             </p>
         </td>

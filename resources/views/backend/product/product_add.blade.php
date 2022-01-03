@@ -99,7 +99,7 @@
                                                     <h5>Sub-SubCategory Select <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="subsubcategory_id" class="form-control"
-                                                                required="">
+                                                                >
                                                             <option value="" selected="" disabled="">Select
                                                                 Sub-SubCategory
                                                             </option>
@@ -129,7 +129,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product Name Hindi <span class="text-danger">*</span></h5>
+                                                    <h5>Product Name Bangla <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_name_hin" class="form-control"
                                                                required="">
@@ -202,7 +202,7 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product Tag Hindi <span class="text-danger">*</span></h5>
+                                                    <h5>Product Tag Bangla <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_tags_hin" required=""
                                                                class="form-control" value="Lorem,Ipsum,Amet"
@@ -234,7 +234,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product Size Hindi <span class="text-danger">*</span></h5>
+                                                    <h5>Product Size Bangla <span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <input type="text" name="product_size_hin"
                                                                class="form-control" value="Large,Medium,Small"
@@ -272,9 +272,9 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <h5>Product Color Hindi <span class="text-danger">*</span></h5>
+                                                    <h5>Product Color Bangla <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_color_hin" 
+                                                        <input type="text" name="product_color_hin"
                                                                class="form-control" value="Large,Medium,Small"
                                                                data-role="tagsinput" placeholder="add tags">
 
@@ -372,7 +372,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <h5>Short Description Hindi<span class="text-danger">*</span></h5>
+                                                    <h5>Short Description Bangla<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <textarea name="short_descp_hin" id="textarea"
                                                                   class="form-control" required=""
@@ -403,7 +403,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <h5>Long Description Hindi<span class="text-danger">*</span></h5>
+                                                    <h5>Long Description Bangla<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <textarea id="editor2" required="" name="long_descp_hin"
                                                                   rows="10" cols="80">
@@ -453,6 +453,15 @@
                                                     <label for="checkbox_5">Special Deals</label>
                                                 </fieldset>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <h5>Digital Product <span class="text-danger">pdf,xlx,csv*</span></h5>
+                                        <div class="controls">
+                                            <input type="file" name="file" class="form-control">
                                         </div>
                                     </div>
                                 </div>

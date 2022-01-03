@@ -6,15 +6,21 @@
 
 @section('content')
 
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+
 
     <div class="breadcrumb">
         <div class="container">
             <div class="breadcrumb-inner">
-                <ul class="list-inline list-unstyled">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Clothing</a></li>
-                    <li class='active'>Floral Print Buttoned</li>
-                </ul>
+{{--                <ul class="list-inline list-unstyled">--}}
+{{--                    <li><a href="#">Home</a></li>--}}
+{{--                    <li><a href="#">Clothing</a></li>--}}
+{{--                    <li class='active'>Floral Print Buttoned</li>--}}
+{{--                </ul>--}}
             </div><!-- /.breadcrumb-inner -->
         </div><!-- /.container -->
     </div><!-- /.breadcrumb -->
@@ -23,63 +29,70 @@
             <div class='row single-product'>
                 <div class='col-md-3 sidebar'>
                     <div class="sidebar-module-container">
-                        <div class="home-banner outer-top-n">
-                            <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image">
-                        </div>
+{{--                        <div class="home-banner outer-top-n">--}}
+{{--                            <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image">--}}
+{{--                        </div>--}}
 
 
                         <!-- ============================================== HOT DEALS ============================================== -->
                     @include('frontend.common.hot_deals')
+
+
+    <div class="sidebar-widget product-tag wow fadeInUp outer-top-vs">
+
+        @include('frontend.common.product_tags')
+
+    </div>
                         <!-- ============================================== HOT DEALS: END ============================================== -->
 
                         <!-- ============================================== NEWSLETTER ============================================== -->
-                        <div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small outer-top-vs">
-                            <h3 class="section-title">Newsletters</h3>
-                            <div class="sidebar-widget-body outer-top-xs">
-                                <p>Sign Up for Our Newsletter!</p>
-                                <form>
-                                    <div class="form-group">
-                                        <label class="sr-only" for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Subscribe to our newsletter">
-                                    </div>
-                                    <button class="btn btn-primary">Subscribe</button>
-                                </form>
-                            </div><!-- /.sidebar-widget-body -->
-                        </div><!-- /.sidebar-widget -->
+{{--                        <div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small outer-top-vs">--}}
+{{--                            <h3 class="section-title">Newsletters</h3>--}}
+{{--                            <div class="sidebar-widget-body outer-top-xs">--}}
+{{--                                <p>Sign Up for Our Newsletter!</p>--}}
+{{--                                <form>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label class="sr-only" for="exampleInputEmail1">Email address</label>--}}
+{{--                                        <input type="email" class="form-control" id="exampleInputEmail1"--}}
+{{--                                               placeholder="Subscribe to our newsletter">--}}
+{{--                                    </div>--}}
+{{--                                    <button class="btn btn-primary">Subscribe</button>--}}
+{{--                                </form>--}}
+{{--                            </div><!-- /.sidebar-widget-body -->--}}
+{{--                        </div><!-- /.sidebar-widget -->--}}
                         <!-- ============================================== NEWSLETTER: END ============================================== -->
 
                         <!-- ============================================== Testimonials============================================== -->
-                        <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
-                            <div id="advertisement" class="advertisement">
-                                <div class="item">
-                                    <div class="avatar"><img src="{{asset('frontend/assets/images/testimonials/member1.png')}}" alt="Image">
-                                    </div>
-                                    <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port
-                                        mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                    <div class="clients_author">John Doe <span>Abc Company</span></div>
-                                    <!-- /.container-fluid -->
-                                </div><!-- /.item -->
+{{--                        <div class="sidebar-widget  wow fadeInUp outer-top-vs ">--}}
+{{--                            <div id="advertisement" class="advertisement">--}}
+{{--                                <div class="item">--}}
+{{--                                    <div class="avatar"><img src="{{asset('frontend/assets/images/testimonials/member1.png')}}" alt="Image">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port--}}
+{{--                                        mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>--}}
+{{--                                    <div class="clients_author">John Doe <span>Abc Company</span></div>--}}
+{{--                                    <!-- /.container-fluid -->--}}
+{{--                                </div><!-- /.item -->--}}
 
-                                <div class="item">
-                                    <div class="avatar"><img src="{{asset('frontend/assets/images/testimonials/member3.png')}}" alt="Image">
-                                    </div>
-                                    <div class="testimonials"><em>"</em>Vtae sodales aliq uam morbi non sem lacus port
-                                        mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                    <div class="clients_author">Stephen Doe <span>Xperia Designs</span></div>
-                                </div><!-- /.item -->
+{{--                                <div class="item">--}}
+{{--                                    <div class="avatar"><img src="{{asset('frontend/assets/images/testimonials/member3.png')}}" alt="Image">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="testimonials"><em>"</em>Vtae sodales aliq uam morbi non sem lacus port--}}
+{{--                                        mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>--}}
+{{--                                    <div class="clients_author">Stephen Doe <span>Xperia Designs</span></div>--}}
+{{--                                </div><!-- /.item -->--}}
 
-                                <div class="item">
-                                    <div class="avatar"><img src="{{asset('frontend/assets/images/testimonials/member2.png')}}" alt="Image">
-                                    </div>
-                                    <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port
-                                        mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                    <div class="clients_author">Saraha Smith <span>Datsun &amp; Co</span></div>
-                                    <!-- /.container-fluid -->
-                                </div><!-- /.item -->
+{{--                                <div class="item">--}}
+{{--                                    <div class="avatar"><img src="{{asset('frontend/assets/images/testimonials/member2.png')}}" alt="Image">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port--}}
+{{--                                        mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>--}}
+{{--                                    <div class="clients_author">Saraha Smith <span>Datsun &amp; Co</span></div>--}}
+{{--                                    <!-- /.container-fluid -->--}}
+{{--                                </div><!-- /.item -->--}}
 
-                            </div><!-- /.owl-carousel -->
-                        </div>
+{{--                            </div><!-- /.owl-carousel -->--}}
+{{--                        </div>--}}
 
                         <!-- ============================================== Testimonials: END ============================================== -->
 
@@ -140,14 +153,57 @@
                                         @endif
                                     </h1>
 
+                                    @php
+                                    $reviewcount = \App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+
+                                    $average = \App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                                    @endphp
+
                                     <div class="rating-reviews m-t-20">
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <div class="rating rateit-small"></div>
+                                                @if($average == 0)
+                                                    No Rating Yet
+                                                @elseif($average ==1 || $average<2)
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+
+                                                @elseif($average ==2 || $average<3)
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+
+                                                @elseif($average ==3 || $average<4)
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+
+                                                @elseif($average ==4 || $average<5)
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+
+                                                @elseif($average ==5 || $average<5)
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+
+                                                    @endif
                                             </div>
                                             <div class="col-sm-8">
                                                 <div class="reviews">
-                                                    <a href="#" class="lnk">(13 Reviews)</a>
+                                                    <a href="#" class="lnk">({{count($reviewcount)}} Reviews)</a>
                                                 </div>
                                             </div>
                                         </div><!-- /.row -->
@@ -178,34 +234,34 @@
 
                                     <div class="price-container info-container m-t-20">
                                         <div class="row">
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-8">
                                                 <div class="price-box">
                                                     @if($product->discount_price==NULL)
-                                                        <span class="price">${{$product->selling_price}}</span>
+                                                        <span class="price">TK {{$product->selling_price}}</span>
                                                     @else
-                                                        <span class="price">${{$product->discount_price}} </span>
-                                                        <span class="price-strike">$ {{$product->selling_price}}</span>
+                                                        <span class="price">TK {{$product->discount_price}} </span>
+                                                        <span class="price-strike">TK {{$product->selling_price}}</span>
                                                         @endif
 
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-6">
-                                                <div class="favorite-button m-t-10">
-                                                    <a class="btn btn-primary" data-toggle="tooltip"
-                                                       data-placement="right" title="Wishlist" href="#">
-                                                        <i class="fa fa-heart"></i>
-                                                    </a>
-                                                    <a class="btn btn-primary" data-toggle="tooltip"
-                                                       data-placement="right" title="Add to Compare" href="#">
-                                                        <i class="fa fa-signal"></i>
-                                                    </a>
-                                                    <a class="btn btn-primary" data-toggle="tooltip"
-                                                       data-placement="right" title="E-mail" href="#">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
+{{--                                            <div class="col-sm-6">--}}
+{{--                                                <div class="favorite-button m-t-10">--}}
+{{--                                                    <a class="btn btn-primary" data-toggle="tooltip"--}}
+{{--                                                       data-placement="right" title="Wishlist" href="#">--}}
+{{--                                                        <i class="fa fa-heart"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                    <a class="btn btn-primary" data-toggle="tooltip"--}}
+{{--                                                       data-placement="right" title="Add to Compare" href="#">--}}
+{{--                                                        <i class="fa fa-signal"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                    <a class="btn btn-primary" data-toggle="tooltip"--}}
+{{--                                                       data-placement="right" title="E-mail" href="#">--}}
+{{--                                                        <i class="fa fa-envelope"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
 
                                         </div><!-- /.row -->
                                     </div><!-- /.price-container -->
@@ -279,8 +335,10 @@
                                     </div><!-- /.quantity-container -->
 
 
+
                                     <!-- Go to www.addthis.com/dashboard to customize your tools -->
                                     <div class="addthis_inline_share_toolbox"></div>
+
 
                                 </div><!-- /.product-info -->
                             </div><!-- /.col-sm-7 -->
@@ -328,9 +386,49 @@
                                                         @else
                                                         <div class="review">
                                                             <div class="row">
-                                                                <div class="col-md-3">
+                                                                <div class="col-md-6">
                                                                     <img style="border-radius: 50%" src="{{(!empty($item->user->profile_photo_path)) ? url('upload/user_images/'.$item->user->profile_photo_path): url('upload/avatar.png')}}"
-                                                                         width="40px;" height="40px;"><b>{{$item->user->name}}</b>
+                                                                         width="40px;" height="40px;"><b style="margin-left: 10px;">{{$item->user->name}}</b>
+                                                                    @if($item->rating == NULL)
+
+                                                                    @elseif($item->rating == 1)
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star"></span>
+                                                                        <span class="fa fa-star"></span>
+                                                                        <span class="fa fa-star"></span>
+                                                                        <span class="fa fa-star"></span>
+
+                                                                    @elseif($item->rating == 2)
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star"></span>
+                                                                        <span class="fa fa-star"></span>
+                                                                        <span class="fa fa-star"></span>
+                                                                    @elseif($item->rating == 3)
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star"></span>
+                                                                        <span class="fa fa-star"></span>
+                                                                    @elseif($item->rating == 4)
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star"></span>
+                                                                    @elseif($item->rating == 5)
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star checked"></span>
+
+                                                                        @endif
+                                                                </div>
+                                                                <div class="col-md-6">
+
+
+
                                                                 </div>
                                                             </div>
                                                         <div class="review-title"><span class="summary">{{$item->summary}}</span><span
@@ -361,6 +459,29 @@
                                                         <form role="form" class="cnt-form" method="post" action="{{route('review.store')}}">
                                                             @csrf
                                                             <input type="hidden" name="product_id" value="{{$product->id}}">
+
+                                                            <table class="table">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th class="cell-label">&nbsp;</th>
+                                                                    <th>1 star</th>
+                                                                    <th>2 stars</th>
+                                                                    <th>3 stars</th>
+                                                                    <th>4 stars</th>
+                                                                    <th>5 stars</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td class="cell-label">Quality</td>
+                                                                    <td><input type="radio" name="quality" class="radio" value="1"></td>
+                                                                    <td><input type="radio" name="quality" class="radio" value="2"></td>
+                                                                    <td><input type="radio" name="quality" class="radio" value="3"></td>
+                                                                    <td><input type="radio" name="quality" class="radio" value="4"></td>
+                                                                    <td><input type="radio" name="quality" class="radio" value="5"></td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table><!-- /.table .table-bordered -->
 
                                                             <div class="row">
                                                                 <div class="col-sm-6">
@@ -477,18 +598,21 @@
 
                                                     </a>
                                                 </h3>
-                                                <div class="rating rateit-small"></div>
+
+                                                {{--Review Star--}}
+                                                @include('frontend.common.reviewStar')
+
                                                 <div class="description"></div>
 
                                                 @if($product->discount_price==NULL)
                                                     <div class="product-price"><span
-                                                            class="price"> ${{$product->selling_price}}</span></div>
+                                                            class="price">TK {{$product->selling_price}}</span></div>
                                                 @else
 
                                                     <div class="product-price"><span
-                                                            class="price">${{$product->discount_price}} </span>
+                                                            class="price">TK {{$product->discount_price}} </span>
                                                         <span
-                                                            class="price-before-discount">${{$product->selling_price}}</span>
+                                                            class="price-before-discount">TK {{$product->selling_price}}</span>
                                                     </div>
 
                                             @endif
@@ -501,24 +625,19 @@
                                                 <div class="action">
                                                     <ul class="list-unstyled">
                                                         <li class="add-cart-button btn-group">
-                                                            <button data-toggle="tooltip"
-                                                                    class="btn btn-primary icon" type="button"
-                                                                    title="Add Cart"><i
-                                                                    class="fa fa-shopping-cart"></i></button>
+                                                            <button
+                                                                class="btn btn-primary icon" type="button"
+                                                                title="Add Cart" data-toggle="modal" data-target="#exampleModal" id="{{$product->id}}"
+                                                                onclick="productView(this.id)"><i
+                                                                    class="fa fa-shopping-cart"></i>
+                                                            </button >
                                                             <button class="btn btn-primary cart-btn"
                                                                     type="button">Add to cart
                                                             </button>
                                                         </li>
-                                                        <li class="lnk wishlist"><a data-toggle="tooltip"
-                                                                                    class="add-to-cart"
-                                                                                    href="detail.html"
-                                                                                    title="Wishlist"> <i
-                                                                    class="icon fa fa-heart"></i> </a></li>
-                                                        <li class="lnk"><a data-toggle="tooltip"
-                                                                           class="add-to-cart"
-                                                                           href="detail.html" title="Compare">
-                                                                <i class="fa fa-signal" aria-hidden="true"></i>
-                                                            </a></li>
+
+                                                        <button class="btn btn-primary icon" type="button" title="Wishlist" id="{{ $product->id }}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
+
                                                     </ul>
                                                 </div>
                                                 <!-- /.action -->
@@ -541,7 +660,7 @@
 
                 </div><!-- /.col -->
                 <div class="clearfix"></div>
-                @include('frontend.body.brands')
+{{--                @include('frontend.body.brands')--}}
             </div><!-- /.row -->
 
 

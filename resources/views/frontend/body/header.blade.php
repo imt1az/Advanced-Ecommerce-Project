@@ -36,6 +36,17 @@
                                 @endif
 
                             </a></li>
+                        <li>
+                            <a href="" type="button"  data-toggle="modal" data-target="#order_tracking"><i class="icon fa fa-check"></i>
+                                @if(session()->get('language')=='bangla')
+                                    ট্র্যাকিং
+                                @else
+                                    Order Tracking
+                                @endif
+
+                            </a>
+                        </li>
+
                         @auth
                             <li><a href="{{route('login')}}"><i class="icon fa fa-user"></i>
                                     @if(session()->get('language')=='bangla')
@@ -108,8 +119,10 @@
                 @endphp
                 <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                     <!-- ============================================================= LOGO ============================================================= -->
-                    <div class="logo"><a href="{{url('/')}}"> <img src="{{asset($setting->logo)}}"
-                                                                   alt="logo"> </a></div>
+                    <div class="logo"><a href="{{url('/')}}"> <img style="padding-right: auto;" src="{{asset($setting->logo)}}"
+                                                                   alt="logo"></a>
+
+                    </div>
                     <!-- /.logo -->
                     <!-- ============================================================= LOGO : END ============================================================= -->
                 </div>
@@ -119,27 +132,38 @@
                     <!-- /.contact-row -->
                     <!-- ============================================================= SEARCH AREA ============================================================= -->
                     <div class="search-area">
-                        <form>
+
+                        <form action="{{route('product.search')}}" method="post">
+                            @csrf
                             <div class="control-group">
                                 <ul class="categories-filter animate-dropdown">
                                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"
                                                             href="category.html">Categories <b class="caret"></b></a>
+                                        @php
+                                            $categories = \App\Models\Category::orderBy('category_name_en','ASC')->get();
+                                        @endphp
                                         <ul class="dropdown-menu" role="menu">
-                                            <li class="menu-header">Computer</li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                                       href="category.html">- Clothing</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                                       href="category.html">- Electronics</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                                       href="category.html">- Shoes</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                                       href="category.html">- Watches</a></li>
+                                            @foreach($categories as $category)
+
+                                            <li class="menu-header">
+                                                @if(session()->get('language')=='bangla')
+                                                    {{$category->category_name_hin}}
+                                                @else
+                                                    {{$category->category_name_en}}
+                                                @endif
+                                            </li>
+
+                                            @endforeach
+
                                         </ul>
                                     </li>
                                 </ul>
-                                <input class="search-field" placeholder="Search here..."/>
-                                <a class="search-button" href="#"></a></div>
+                                <input class="search-field" id="search" name="search" onfocus="search_result_show()" onblur="search_result_hide()" placeholder="Search here..."/>
+                               <button class="search-button" type="submit"> </button></div>
+
                         </form>
+                        <div id="searchProducts"></div>
+
                     </div>
                     <!-- /.search-area -->
                     <!-- ============================================================= SEARCH AREA : END ============================================================= -->
@@ -156,7 +180,7 @@
                                 <div class="basket-item-count"><span class="count" id="cartQty"></span></div>
                                 <div class="total-price-basket">
                                     <span class="lbl"></span>
-                                    <span class="total-price"> <span class="sign">$</span>
+                                    <span class="total-price"> <span class="sign">TK</span>
                                         <span class="value" id="cartSubtotal"></span>
                                     </span>
                                 </div>
@@ -174,7 +198,7 @@
                                     <div class="pull-right"><span class="text">Sub Total :</span><span class='price' id="cartSubtotal">$600.00</span>
                                     </div>
                                     <div class="clearfix"></div>
-                                    <a href="checkout.html"
+                                    <a href="{{route('checkout')}}"
                                        class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a></div>
                                 <!-- /.cart-total-->
 
@@ -210,8 +234,8 @@
                     <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
                         <div class="nav-outer">
                             <ul class="nav navbar-nav">
-                                <li class="active dropdown yamm-fw"><a href="{{url('/')}}" data-hover="dropdown"
-                                                                       class="dropdown-toggle" data-toggle="dropdown">
+                                <li class="dropdown yamm mega-menu"><a href="{{url('/')}}"
+                                                                       class="dropdown-toggle" >
                                         @if(session()->get('language')=='bangla')
                                             ঘর
                                         @else
@@ -252,9 +276,9 @@
                                                                 <a href="{{url('subcategory/product/'.$subcategory->id.'/'.$subcategory->subcategory_slug_en)}}">
                                                                 <h2 class="title">
                                                                     @if(session()->get('language')=='bangla')
-                                                                        {{$subcategory->post_details_hin}}
+                                                                        {{$subcategory->subcategory_name_hin}}
                                                                     @else
-                                                                        {{$subcategory->post_details_en}}
+                                                                        {{$subcategory->subcategory_name_en}}
                                                                     @endif
 
                                                                    </h2>
@@ -284,10 +308,11 @@
 
                                                     <!-- /.col -->
 
-                                                        <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image">
-                                                            <img class="img-responsive"
-                                                                 src="{{asset('frontend/assets/images/banners/top-menu-banner.jpg')}}"
-                                                                 alt=""></div>
+{{--                                                        <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image">--}}
+{{--                                                            <img class="img-responsive"--}}
+{{--                                                                 src="{{asset('frontend/assets/images/banners/top-menu-banner.jpg')}}"--}}
+{{--                                                                 alt="">--}}
+{{--                                                        </div>--}}
                                                         <!-- /.yamm-content -->
                                                     </div>
                                                 </div>
@@ -296,9 +321,11 @@
                                     </li>
                                 @endforeach
 
+                                <li><a href="{{route('shop.page')}}">Shop</a></li>
+
                                 {{--End Category Data--}}
-                                <li class="dropdown  navbar-right special-menu"><a href="#">Todays offer</a></li>
-                                <li class="dropdown  navbar-right special-menu"><a href="{{route('home.blog')}}">Blog</a></li>
+{{--                                <li class="dropdown  navbar-right special-menu"><a href="#">Todays offer</a></li>--}}
+{{--                                <li class="dropdown  navbar-right special-menu"><a href="{{route('home.blog')}}">Blog</a></li>--}}
                             </ul>
 
 
@@ -320,4 +347,56 @@
     <!-- /.header-nav -->
     <!-- ============================================== NAVBAR : END ============================================== -->
 
+
+    <!-- Order Tracking Modal -->
+    <div class="modal fade" id="order_tracking" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: #8c0615; margin-left: 15px;"><strong>Track Your Order</strong></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('order.tracking')}}">
+                        @csrf
+                        <div class="modal-body">
+                            <label>Invoice Code</label>
+                            <input type="text" name="code" required="" class="form-control" placeholder="Put your invoice number">
+                        </div>
+                        <button class="btn btn-danger" type="submit" style="margin-left: 15px;">Track Now</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </header>
+
+<style>
+
+    .search-area{
+        position: relative;
+    }
+    #searchProducts {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        z-index: 999;
+        border-radius: 8px;
+        margin-top: 5px;
+    }
+</style>
+
+<script>
+    function search_result_hide(){
+        $("#searchProducts").slideUp();
+    }
+    function search_result_show(){
+        $("#searchProducts").slideDown();
+    }
+</script>

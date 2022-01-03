@@ -14,6 +14,8 @@
     <meta name="keywords" content="{{$seo->meta_keyword}}">
     <meta name="robots" content="all">
 
+    <link rel="icon" href="{{asset('backend//images/EuroBath.png ')}}">
+
 {{--Goole Analytics--}}
     <script>
         {{$seo->google_analytics}}
@@ -131,9 +133,9 @@
 
                     <div class="col-md-4">
                         <ul class="list-group">
-                            <li class="list-group-item">Product price: <strong class="text-danger">$<span
+                            <li class="list-group-item">Product price: <strong class="text-danger">TK <span
                                         id="pprice"></span></strong>
-                                <del id="oldprice">$</del>
+                                <del id="oldprice">TK </del>
                             </li>
                             <li class="list-group-item">Product Code: <strong id="pcode"></strong></li>
                             <li class="list-group-item">Category: <strong id="pcategory"></strong></li>
@@ -563,11 +565,11 @@
                     }</span>
                     </span>
                       <br>
-                     <span class="product-price">PRICE:<span>$${value.price}</span></span>
+                     <span class="product-price">PRICE:<span>Tk ${value.price}</span></span>
 
                      </div>
                     </td>
-                    <td class="cart-product-edit"><a href="#" class="product-edit">Edit</a></td>
+                   
 
 
                     <td class="col-md">
@@ -580,7 +582,7 @@
                          <button type="submit" class="btn btn-success btn-sm" id="${value.rowId}" onclick="cartIncrement(this.id)">+</button>
                         </td>
 
-                    <td class="cart-product-sub-total"><span class="cart-sub-total-price">$${value.subtotal}</span></td>
+                    <td class="cart-product-sub-total"><span class="cart-sub-total-price">Tk ${value.subtotal}</span></td>
 
                     </tr> `
 
@@ -669,7 +671,7 @@
 
 
 
-{{----Apply Coupon With Ajax----}}}
+{{----Apply Coupon With Ajax----}}
 <script type="text/javascript">
  function applyCoupon() {
      var coupon_name = $('#coupon_name').val();
@@ -723,10 +725,10 @@
                      ` <tr>
                                 <th>
                                     <div class="cart-sub-total">
-                                        Subtotal<span class="inner-left-md">$${data.total}</span>
+                                        Subtotal<span class="inner-left-md">TK ${data.total}</span>
                                     </div>
                                     <div class="cart-grand-total">
-                                        Grand Total<span class="inner-left-md">$${data.total}</span>
+                                        Grand Total<span class="inner-left-md">TK ${data.total}</span>
                                     </div>
                                 </th>
                      </tr>`
@@ -737,17 +739,17 @@
                      `<tr >
         <th >
             <div class="cart-sub-total" >
-                Subtotal:<span class="inner-left-md">$ ${data.subtotal}</span>
+                Subtotal:<span class="inner-left-md">TK ${data.subtotal}</span>
             </div>
             <div class="cart-sub-total">
                 Coupon:<span class="inner-left-md">${data.coupon_name}</span>
                 <button type="submit" onclick="couponRemove()"><i class="fa fa-times" style="color: red;"></i>  </button>
             </div>
              <div class="cart-sub-total">
-                Discount Amount:<span class="inner-left-md">$${data.discount_amount}</span>
+                Discount Amount:<span class="inner-left-md">TK ${data.discount_amount}</span>
             </div>
             <div class="cart-grand-total">
-                Grand Total:<span class="inner-left-md">$${data.total_amount}</span>
+                Grand Total:<span class="inner-left-md">TK ${data.total_amount}</span>
             </div>
         </th>
             </tr>`
@@ -758,7 +760,7 @@
  }
  couponCalculation();
 </script>
-{{---- End Apply Coupon With Ajax----}}}
+{{---- End Apply Coupon With Ajax----}}
 
 
 {{------Coupon Remove-------}}

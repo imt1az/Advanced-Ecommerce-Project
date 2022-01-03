@@ -44,24 +44,24 @@
 
                                             <li>
                                                 @if(Session::has('coupon'))
-                                                    <strong style="color: #0b816a">SubTotal : </strong> ${{$cartTotal}}
+                                                    <strong style="color: #0b816a">SubTotal : </strong> BDT {{$cartTotal}}
                                                     <hr>
                                                     <strong style="color: #0b816a">Coupon Name
                                                         : </strong> {{session()->get('coupon')['coupon_name']}}
                                                     ({{session()->get('coupon')['coupon_discount']}}%)
                                                     <hr>
                                                     <strong style="color: #0b816a">Coupon Discount : </strong>
-                                                    ${{session()->get('coupon')['discount_amount']}}
+                                                    BDT {{session()->get('coupon')['discount_amount']}}
                                                     <hr>
                                                     <strong style="color: #0b816a">Grand Total : </strong>
-                                                    ${{session()->get('coupon')['total_amount']}}
+                                                    BDT {{session()->get('coupon')['total_amount']}}
                                                     <hr>
 
                                                 @else
-                                                    <strong style="color: #0b816a">SubTotal : </strong> ${{$cartTotal}}
+                                                    <strong style="color: #0b816a">SubTotal : </strong> BDT {{$cartTotal}}
                                                     <hr>
                                                     <strong style="color: #0b816a">Grand Total : </strong>
-                                                    ${{$cartTotal}}
+                                                    BDT {{$cartTotal}}
                                                     <hr>
                                                 @endif
                                             </li>
@@ -86,7 +86,10 @@
                                     <form action="{{route('cash.order')}}" method="post" id="payment-form">
                                         @csrf
                                         <div class="form-row">
-                                            <img src="{{asset('frontend/assets/images/payments/cash.png')}}">
+                                            <h2 style="color: #ee5435"><p><b>Our Helpline will contact you within 24 hours!</b></p></h2>
+
+                                            <h3 style="color: #0b816a">Please press the submit button</h3>
+{{--                                            <img src="{{asset('frontend/assets/images/payments/cash.png')}}">--}}
                                             <label for="card-element">
 
                                                 <input type="hidden" name="name" value="{{ $data['shipping_name'] }}">
@@ -107,7 +110,7 @@
                                             <div id="card-errors" role="alert"></div>
                                         </div>
                                         <br>
-                                        <button class="btn btn-primary">Submit Payment</button>
+                                        <button class="btn btn-primary" style="border-radius: 10px;"><b>Submit</b></button>
                                     </form>
                                 </div>
                             </div>
@@ -121,7 +124,7 @@
                 </div><!-- /.row -->
             </div><!-- /.checkout-box -->
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-        @include('frontend.body.brands')<!-- /.logo-slider -->
+{{--        @include('frontend.body.brands')<!-- /.logo-slider -->--}}
             <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
         </div><!-- /.container -->
     </div><!-- /.body-content -->

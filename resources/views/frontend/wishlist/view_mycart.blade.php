@@ -30,7 +30,7 @@
                                     <th class="cart-romove item">Remove</th>
                                     <th class="cart-description item">Image</th>
                                     <th class="cart-product-name item">Product Name</th>
-                                    <th class="cart-edit item">Edit</th>
+                                   
                                     <th class="cart-qty item">Quantity</th>
                                     <th class="cart-sub-total item">Subtotal</th>
 
@@ -86,7 +86,7 @@
                             <tr>
                                 <td>
                                     <div class="cart-checkout-btn pull-right">
-                                        <a href="{{route('checkout')}}" class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</a>
+                                        <a href="{{route('checkout')}}" class="btn btn-primary checkout-btn">PROCCED TO CHECKOUT</a>
                                     </div>
                                 </td>
                             </tr>
@@ -97,10 +97,13 @@
             </div><!-- /.sigin-in-->
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
 
-        @include('frontend.body.brands')
+{{--        @include('frontend.body.brands')--}}
         <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
         </div><!-- /.container -->
     </div><!-- /.body-content -->
+    <br>
+    <br>
+    <br>
 
 
 

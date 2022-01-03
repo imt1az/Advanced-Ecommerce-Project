@@ -15,7 +15,7 @@
                <div class="col-md-6">
                    <h3 class="text-center">
                        <span class="text-danger">HI....</span><strong>{{Auth::user()->name}}</strong>
-                       Welcome to our online shop
+                       Welcome to Euro Bath
                    </h3>
                </div>
            </div>
